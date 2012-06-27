@@ -4,8 +4,7 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
-(fset 'yes-or-no-p 'y-or-n-p)
-
+(require 'my-general)
 (require 'my-functions)
 (require 'my-ido)
 (require 'my-recentf)
@@ -14,6 +13,9 @@
 
 (require 'my-keys)
 (require 'my-menu)
+
+;;(eval-after-load "vc" '(remove-hook 'find-file-hooks 'vc-find-file-hook))
+(delete 'Git vc-handled-backends)
 
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
